@@ -1,0 +1,25 @@
+/**用户表*/
+CREATE TABLE `tb_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `account` varchar(20) NOT NULL DEFAULT '' COMMENT '账户，用手机号',
+  `linkman` varchar(10) DEFAULT NULL COMMENT '联系人',
+  `company_name` varchar(30) NOT NULL DEFAULT '' COMMENT '公司名称',
+  `pay_mode` int(11) DEFAULT NULL COMMENT '1=实时支付， 2=周付， 3=月付',
+  `telphone_one` varchar(13) NOT NULL DEFAULT '' COMMENT '第一联系方式',
+  `telphone_two` varchar(13) DEFAULT NULL COMMENT '第二联系方式',
+  `photos` varchar(100) DEFAULT NULL COMMENT '用户的证照, 用分号隔开',
+  `user_type` varchar(30) NOT NULL DEFAULT '' COMMENT '用户类型',
+  `role` varchar(20) NOT NULL DEFAULT '' COMMENT '公司内角色',
+  `status` int(11) unsigned NOT NULL COMMENT '用户状态 1=未认证，2=已认证 3=已冻结 4 正常',
+  `province` varchar(10) NOT NULL DEFAULT '' COMMENT '省',
+  `city` varchar(20) NOT NULL DEFAULT '' COMMENT '市',
+  `area` varchar(20) NOT NULL DEFAULT '' COMMENT '区',
+  `address` varchar(50) DEFAULT '' COMMENT '详细地址',
+  `invite_code` varchar(6) DEFAULT '' COMMENT '邀请码',
+  `balance` float DEFAULT NULL COMMENT '余额',
+  `point` int(11) DEFAULT '0' COMMENT '积分',
+  `is_deleted` int(2) unsigned DEFAULT NULL COMMENT '是否被删除 1=已经删除 0=未删除',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
